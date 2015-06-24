@@ -13,7 +13,7 @@ $(document).ready(function() {
 	});
 	//add a new row with user information
 	$("#add-med").click(function() {
-		if ($("#dosage").val().length) {
+		if ($("#dose").val().length) {
 			addNewRowAndSave();
 		} else {
 			alert('Please enter a dosage amount');
@@ -26,8 +26,23 @@ $(document).ready(function() {
  * drugName - generic or brand name
  */
 
-function getDrugInteractionsForDrugName(drugName) {
-	loadResultsForQuery('&search=drug_interactions:"' + drugName + '"');
+function getDrugInteractionsForDrugName(drugName) 
+{
+	query = '&search=drug_interactions:"' + drugName + '"';
+	
+	$.ajax( {
+		url : labelRootURL + '?api_key=' + apiKey + query,
+		error : function(xhr, status, error) {
+			alert("No Matches Found");
+			$('#drug-name').text("");
+			$('#medDetails').text("");
+			$('#add-med').prop("disabled", true);
+		}
+	}).done(function(data) {
+		//TODO:
+		//next call checkAgainstCurrentDrugs saved locally and display any potential interactions
+	});
+	
 }
 
 /*
@@ -55,7 +70,7 @@ function loadResultsForQuery(query) {
 		}
 	}).done(function(data) {
 		$('#drug-name').text(data.results[0].openfda.substance_name[0]);
-		$('#medDetails').text(data.results[0].indications_and_usage[0]);
+		$('#medDetails').text(data.results[0].openfda.pharm_class_epc[0]);
 		$('#add-med').prop("disabled", false);
 		//TODO:
 		//next call checkAgainstCurrentDrugs and display any potential interactions
@@ -69,7 +84,7 @@ function loadResultsForQuery(query) {
 function addNewRowAndSave() {
 
 	var drugName = $('#drug-name').text();
-	alert(drugName);
+	//TODO: check for existing drug
 	$("#medList")
 			.append(
 					'<tr>'
@@ -89,7 +104,7 @@ function addNewRowAndSave() {
 							+ '<input type="checkbox" name="rejectMed1" id="rejectMed1">'
 							+ '</td>' + '</tr>');
 
-	// $('#add-med').prop("disabled",true);
+	 $('#add-med').prop("disabled",true);
 }
 
 /**
@@ -102,7 +117,8 @@ function addNewRowAndSave() {
  TODO: add a better dosage validation and display
 
  */
-function addDrugToPersonalDB(drugName, drugID, drugDosage, drugJSON) {
+function addDrugToPersonalDB(drugName, drugID, drugDosage, drugJSON) 
+{
 	//save data locally
 
 }
@@ -110,7 +126,8 @@ function addDrugToPersonalDB(drugName, drugID, drugDosage, drugJSON) {
 //get previously added data
 //Drug Name (ID)
 //Dosage
-function loadDrugTable() {
+function loadDrugTable()
+{
 
 	//get data from local storage and display
 
