@@ -1,69 +1,122 @@
-var apiKey="RspQyE7vqwceJDz1q5aKkxcFofHac7xmDg5oe3G2";
-var labelRootURL="https://api.fda.gov/drug/label.json";
-$(document).ready(function()
- {
-   $("#search_input").keypress(function(e) {
-  if(e.keyCode == 13)
-     {
-         getDrugSummaryForDrugName(this.value);
-     }
+//global variables
+//TODO: make this secure?????????
+var apiKey = "RspQyE7vqwceJDz1q5aKkxcFofHac7xmDg5oe3G2";
+var labelRootURL = "https://api.fda.gov/drug/label.json";
+
+//jquery init
+$(document).ready(function() {
+	//upon enter selected perform the search
+	$("#medication").keypress(function(e) {
+		if (e.keyCode == 13) {
+			getDrugSummaryForDrugName(this.value);
+		}
+	});
+	//add a new row with user information
+	$("#add-med").click(function() {
+		if ($("#dosage").val().length) {
+			addNewRowAndSave();
+		} else {
+			alert('Please enter a dosage amount');
+		}
+	});
 });
-});
 
+/*
+ * Calls FDA API to get Interactions for the drugName
+ * drugName - generic or brand name
+ */
 
-function getDrugInteractionsForDrugName(drugName)
-{
-  loadResultsForQuery('&search=drug_interactions:"' + drugName + '"'); 
+function getDrugInteractionsForDrugName(drugName) {
+	loadResultsForQuery('&search=drug_interactions:"' + drugName + '"');
 }
 
-function getDrugSummaryForDrugName(drugName)
-{
-  loadResultsForQuery('&search=openfda.brand_name:' + drugName); 
+/*
+ * Calls FDA API to get Interactions for the drugName
+ * drugName - generic or brand name
+ */
+
+function getDrugSummaryForDrugName(drugName) {
+	loadResultsForQuery('&search=openfda.brand_name:' + drugName);
 }
 
-//brings up drug information for the selected drug
-function loadResultsForQuery(query)
-{
- $.ajax(
-    {
-        url: labelRootURL + '?api_key=' + apiKey + query
-    }).done(function(data) 
-    {
-    
-       $('.drug-name').text(data.results[0].openfda.substance_name[0]);
-       $('.interactions').text(data.results[0].active_ingredient[0]);
-       //todo:
-       //next call checkAgainstCurrentDrugs and display any potential interactions
-    });
+/**
+ Brings up drug based on search query
+
+ query - the query to pass
+ */
+function loadResultsForQuery(query) {
+	$.ajax( {
+		url : labelRootURL + '?api_key=' + apiKey + query,
+		error : function(xhr, status, error) {
+			alert("No Matches Found");
+			$('#drug-name').text("");
+			$('#medDetails').text("");
+			$('#add-med').prop("disabled", true);
+		}
+	}).done(function(data) {
+		$('#drug-name').text(data.results[0].openfda.substance_name[0]);
+		$('#medDetails').text(data.results[0].indications_and_usage[0]);
+		$('#add-med').prop("disabled", false);
+		//TODO:
+		//next call checkAgainstCurrentDrugs and display any potential interactions
+	});
 }
 
+/*
+ * adds a new row based on last searched item
+ * TODO: add validation of dosage
+ */
+function addNewRowAndSave() {
 
-//user adds drug information to db
-//Drug Name (ID)
-//Dosage
-function addDrugToPersonalDB(drugName, drugID, drugDosage)
-{
+	var drugName = $('#drug-name').text();
+	alert(drugName);
+	$("#medList")
+			.append(
+					'<tr>'
+							+ '<th scope="row">'
+							+ drugName
+							+ '</th>'
+							+ '<td width="10%" class="center">'
+							+ $('#dose').val()
+							+ '</td>'
+							+ '<td>'
+							+ $('#medDetails').val()
+							+ '</td>'
+							+ '<td width="10%" class="center">'
+							+ '<input type="checkbox" name="acceptMed1" id="acceptMed1">'
+							+ '</td>'
+							+ '<td width="10%" class="center">'
+							+ '<input type="checkbox" name="rejectMed1" id="rejectMed1">'
+							+ '</td>' + '</tr>');
 
-//call API to save data
+	// $('#add-med').prop("disabled",true);
+}
+
+/**
+ user adds drug information to db
+ Drug Name (ID) - Drug Generic Name
+ DrugID - string id from USDA DB
+ drugDosage - string indicating your dosage for reference - simple string for no
+ drugJSON - JSON retrieved from the API
+
+ TODO: add a better dosage validation and display
+
+ */
+function addDrugToPersonalDB(drugName, drugID, drugDosage, drugJSON) {
+	//save data locally
 
 }
 
 //get previously added data
 //Drug Name (ID)
 //Dosage
-function addDrugToPersonalDB(drugName, drugID, drugDosage)
-{
+function loadDrugTable() {
 
-//call API to save data
+	//get data from local storage and display
 
 }
 
 //query web service for any interactions with drug to add
-function checkAgainstCurrentDrugs(query)
-{
-
+function checkAgainstCurrentDrugs(query) {
 
 }
-
-
-

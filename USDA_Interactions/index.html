@@ -25,6 +25,8 @@ Do the following if you're using your customized build of modernizr (http://www.
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <script src="CSS/respond.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="Data/USDAService.js"></script>
 </head>
 <body>
 <div class="gridContainer clearfix">
@@ -39,7 +41,9 @@ Do the following if you're using your customized build of modernizr (http://www.
     </h3>
  </section>   
   <section id="inputArea">  
-   <h3>Step 2: Review details of medication</h3><textarea name="medDetails" cols="70" rows="5" ></textarea>
+   <h3>Step 2: Review details of medication</h3>
+   <label id="drug-name"></label>
+   <textarea id="medDetails" name="medDetails" cols="70" rows="5" ></textarea>
    
 </section>
 <section >
@@ -59,109 +63,10 @@ Do the following if you're using your customized build of modernizr (http://www.
 <table width="100%" border="1" cellspacing="0" cellpadding="3" summary="medications" id="medList">
   <tr>
     <th width="149" scope="col" id="medItem">Prescription</th>
+    <th width="20" scope="col" id="dosage">Dosage</th>
     <th width="99" scope="col" id="interaction">Drug Interaction</th>
     <th width="76" scope="col" id="accept">Accept</th>
     <th width="61" scope="col" id="reject">Reject</th>
-  </tr>
-  <tr>
-    <th scope="row">&nbsp;</th>
-    <td>&nbsp;</td>
-    <td width="10%" class="center">
-      <input type="checkbox" name="acceptMed1" id="acceptMed1">
-   </td>
-    <td width="10%" class="center">
-      <input type="checkbox" name="rejectMed1" id="rejectMed1">
-     </td>
-  </tr>
-  <tr>
-    <th scope="row">&nbsp;</th>
-    <td>&nbsp;</td>
-    <td><span class="center">
-      <input type="checkbox" name="acceptMed2" id="acceptMed2">
-    </span></td>
-    <td><span class="center">
-      <input type="checkbox" name="rejectMed2" id="rejectMed2">
-    </span></td>
-  </tr>
-  <tr>
-    <th scope="row">&nbsp;</th>
-    <td>&nbsp;</td>
-    <td><span class="center">
-      <input type="checkbox" name="acceptMed3" id="acceptMed3">
-    </span></td>
-    <td><span class="center">
-      <input type="checkbox" name="rejectMed3" id="rejectMed3">
-    </span></td>
-  </tr>
-  <tr>
-    <th scope="row">&nbsp;</th>
-    <td>&nbsp;</td>
-    <td><span class="center">
-      <input type="checkbox" name="acceptMed4" id="acceptMed4">
-    </span></td>
-    <td><span class="center">
-      <input type="checkbox" name="rejectMed4" id="rejectMed4">
-    </span></td>
-    </tr>
-  <tr>
-    <th scope="row">&nbsp;</th>
-    <td>&nbsp;</td>
-    <td><span class="center">
-      <input type="checkbox" name="acceptMed5" id="acceptMed5">
-    </span></td>
-    <td><span class="center">
-      <input type="checkbox" name="rejectMed5" id="rejectMed5">
-    </span></td>
-  </tr>
-  <tr>
-    <th scope="row">&nbsp;</th>
-    <td>&nbsp;</td>
-    <td><span class="center">
-      <input type="checkbox" name="acceptMed6" id="acceptMed5">
-    </span></td>
-    <td><span class="center">
-      <input type="checkbox" name="rejectMed6" id="rejectMed6">
-    </span></td>
-  </tr>
-  <tr>
-    <th scope="row">&nbsp;</th>
-    <td>&nbsp;</td>
-    <td><span class="center">
-      <input type="checkbox" name="acceptMed7" id="acceptMed6">
-    </span></td>
-    <td><span class="center">
-      <input type="checkbox" name="rejectMed7" id="rejectMed7">
-    </span></td>
-  </tr>
-  <tr>
-    <th scope="row">&nbsp;</th>
-    <td>&nbsp;</td>
-    <td><span class="center">
-      <input type="checkbox" name="acceptMed8" id="acceptMed7">
-    </span></td>
-    <td><span class="center">
-      <input type="checkbox" name="rejectMed8" id="rejectMed8">
-    </span></td>
-  </tr>
-  <tr>
-    <th scope="row">&nbsp;</th>
-    <td>&nbsp;</td>
-    <td><span class="center">
-      <input type="checkbox" name="acceptMed9" id="acceptMed8">
-    </span></td>
-    <td><span class="center">
-      <input type="checkbox" name="rejectMed9" id="rejectMed9">
-    </span></td>
-  </tr>
-  <tr>
-    <th scope="row">&nbsp;</th>
-    <td>&nbsp;</td>
-    <td><span class="center">
-      <input type="checkbox" name="acceptMed10" id="acceptMed9">
-    </span></td>
-    <td><span class="center">
-      <input type="checkbox" name="rejectMed10" id="rejectMed10">
-    </span></td>
   </tr>
 </table>
 
