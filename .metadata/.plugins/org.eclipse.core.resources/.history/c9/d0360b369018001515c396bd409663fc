@@ -1,0 +1,27 @@
+var apiKey="RspQyE7vqwceJDz1q5aKkxcFofHac7xmDg5oe3G2";
+var labelRootURL="https://api.fda.gov/drug/label.json";
+$(document).ready(function()
+ {
+   
+})
+
+$("#search_input").keypress(function(e) {
+  if(e.keyCode == 13)
+     {
+         e.preventDefault();
+         sendSelected(this.value);
+         $(this).autocomplete('close');
+     }
+});
+
+function loadResultsForQuery(query)
+{
+ $.ajax(
+    {
+        url: labelRootURL + '?api_key=' + apiKey + '&search=drug_interactions"' + query + '"'
+    }).done(function(data) 
+    {
+       $('.drug-name').append(data.results[0].openfda.substance_name[0]);
+       $('.interactions').append(data.results[0].boxed_warning[0]);
+    });
+}
