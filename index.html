@@ -1,15 +1,173 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>USDA</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="Data/USDAService.js"></script>
-    </head>
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FDA app</title>
+<link href="CSS/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="CSS/style.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
 
-    <body>
-        <div>
-            <p class="greeting-id">The ID is </p>
-            <p class="greeting-content">The content is </p>
-        </div>
-    </body>
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="CSS/respond.min.js"></script>
+</head>
+<body>
+<div class="gridContainer clearfix">
+ <header id="top">
+ <section>
+   <h1 class="center"><img src="images/Script-Info-logo2.png" alt="Script-Info Logo"></h1></section>
+   <h3>The purpose of this app is to determine drug interactions with your prescription medication.</h3>
+ </header>
+   
+<section id="inputArea">   
+   <h3>Step 1: Search for a drug by generic or brand name<br><input type="text"  id="medication" name="medication" size="40" value="">
+    </h3>
+ </section>   
+  <section id="inputArea">  
+   <h3>Step 2: Review details of medication</h3><textarea name="medDetails" cols="70" rows="5" ></textarea>
+   
+</section>
+<section >
+   <h3>Step 3: Add your medication to your Personal Prescription List</h3>
+   
+     <label for="dose">Dose</label>
+     <input type="text" name="dose" id="dose" size="4">
+     <label>
+       Add to my list
+       <input type="submit" name="add-med" id="add-med" value="Add">
+     </label>  
+</section>
+
+<br><br>
+
+<section id="inputArea"> My Personal Prescription List
+<table width="100%" border="1" cellspacing="0" cellpadding="3" summary="medications" id="medList">
+  <tr>
+    <th width="149" scope="col" id="medItem">Prescription</th>
+    <th width="99" scope="col" id="interaction">Drug Interaction</th>
+    <th width="76" scope="col" id="accept">Accept</th>
+    <th width="61" scope="col" id="reject">Reject</th>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td width="10%" class="center">
+      <input type="checkbox" name="acceptMed1" id="acceptMed1">
+   </td>
+    <td width="10%" class="center">
+      <input type="checkbox" name="rejectMed1" id="rejectMed1">
+     </td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td><span class="center">
+      <input type="checkbox" name="acceptMed2" id="acceptMed2">
+    </span></td>
+    <td><span class="center">
+      <input type="checkbox" name="rejectMed2" id="rejectMed2">
+    </span></td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td><span class="center">
+      <input type="checkbox" name="acceptMed3" id="acceptMed3">
+    </span></td>
+    <td><span class="center">
+      <input type="checkbox" name="rejectMed3" id="rejectMed3">
+    </span></td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td><span class="center">
+      <input type="checkbox" name="acceptMed4" id="acceptMed4">
+    </span></td>
+    <td><span class="center">
+      <input type="checkbox" name="rejectMed4" id="rejectMed4">
+    </span></td>
+    </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td><span class="center">
+      <input type="checkbox" name="acceptMed5" id="acceptMed5">
+    </span></td>
+    <td><span class="center">
+      <input type="checkbox" name="rejectMed5" id="rejectMed5">
+    </span></td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td><span class="center">
+      <input type="checkbox" name="acceptMed6" id="acceptMed5">
+    </span></td>
+    <td><span class="center">
+      <input type="checkbox" name="rejectMed6" id="rejectMed6">
+    </span></td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td><span class="center">
+      <input type="checkbox" name="acceptMed7" id="acceptMed6">
+    </span></td>
+    <td><span class="center">
+      <input type="checkbox" name="rejectMed7" id="rejectMed7">
+    </span></td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td><span class="center">
+      <input type="checkbox" name="acceptMed8" id="acceptMed7">
+    </span></td>
+    <td><span class="center">
+      <input type="checkbox" name="rejectMed8" id="rejectMed8">
+    </span></td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td><span class="center">
+      <input type="checkbox" name="acceptMed9" id="acceptMed8">
+    </span></td>
+    <td><span class="center">
+      <input type="checkbox" name="rejectMed9" id="rejectMed9">
+    </span></td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>&nbsp;</td>
+    <td><span class="center">
+      <input type="checkbox" name="acceptMed10" id="acceptMed9">
+    </span></td>
+    <td><span class="center">
+      <input type="checkbox" name="rejectMed10" id="rejectMed10">
+    </span></td>
+  </tr>
+</table>
+
+</section><br>
+
+<footer class="center"><img src="images/NetSvcs-miniLogo.png" alt="NetServices LLC"></footer>
+</div>
+</body>
 </html>
