@@ -11,6 +11,9 @@ $(document).ready(function() {
 			getDrugSummaryForDrugName(this.value);
 		}
 	});
+	$("#searchButton").click(function(e) {
+		getDrugSummaryForDrugName($("#medication").val());
+	});
 	//add a new row with user information
 	$("#add-med").click(function() {
 		if ($("#dose").val().length) {
@@ -135,5 +138,11 @@ function loadDrugTable()
 
 //query web service for any interactions with drug to add
 function checkAgainstCurrentDrugs(query) {
+
+}
+
+function buildAndReturnDrugDescription(drugJSON)
+{
+	
 
 }
