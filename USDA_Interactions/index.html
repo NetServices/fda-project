@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FDA app</title>
+<title>FDA Agile app</title>
 <link href="CSS/boilerplate.css" rel="stylesheet" type="text/css">
 <link href="CSS/style.css" rel="stylesheet" type="text/css">
 <!-- 
@@ -28,23 +28,26 @@ Do the following if you're using your customized build of modernizr (http://www.
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="Data/USDAService.js"></script>
 </head>
-<body>
-<div class="gridContainer clearfix">
- <header id="top">
- <section>
-   <h1 class="center"><img src="images/Script-Info-logo2.png" alt="Script-Info Logo"></h1></section>
-   <h3>The purpose of this app is to determine drug interactions with your prescription medication.</h3>
+<body><div class="gridContainer clearfix">
+ <header id="top" >
+ <div id="wrapper"> 
+	<div class="logo"><img src="images/FDA-logo.png" alt="Script2Go logo"></div>
+    <div class="title"><img src="images/FDA-Name.png" alt="US Food and Drug Administration"></div> 
+ </div>
+ 
  </header>
-   
-<section id="inputArea">   
-   <h3>Step 1: Search for a drug by generic or brand name<br><input type="text"  id="medication" name="medication" size="40" value="">
-    </h3>
- </section>   
+ 
+ 
+
+<section id="inputArea">
+<h3>The purpose of this app is to determine drug interactions with your prescription medication.<br><br>
+   </h3>
+  <h3>Step 1: Search for a drug by generic or brand name</h3><input type="text" class="style-5" id="medication" name="medication" size="30" value=""><input name="Go" id="searchButton" type="submit" value="" size="4" class="srchBtn" >
+</section> 
+  
   <section id="inputArea">  
-   <h3>Step 2: Review details of medication</h3>
-   <label id="drug-name"></label>
-   <textarea id="medDetails" name="medDetails" cols="70" rows="5" ></textarea>
-   
+   <h3>Step 2: Review details of medication</h3> <label id="drug-name"></label><textarea name="medDetails" id="medDetails" cols="70" rows="5" ></textarea>
+  
 </section>
 <section >
    <h3>Step 3: Add your medication to your Personal Prescription List</h3>
@@ -64,7 +67,7 @@ Do the following if you're using your customized build of modernizr (http://www.
   <tr>
     <th width="149" scope="col" id="medItem">Prescription</th>
     <th width="20" scope="col" id="dosage">Dosage</th>
-    <th width="99" scope="col" id="interaction">Category</th>
+    <th width="99" scope="col" id="interaction">Drug Interaction</th>
     <th width="76" scope="col" id="accept">Accept</th>
     <th width="61" scope="col" id="reject">Reject</th>
   </tr>
@@ -72,7 +75,7 @@ Do the following if you're using your customized build of modernizr (http://www.
 
 </section><br>
 
-<footer class="center"><img src="images/NetSvcs-miniLogo.png" alt="NetServices LLC"></footer>
+<footer class="center"><img name="NetSvcsminiLogo" src="images/NetSvcs-miniLogo.png" width="100" height="25" alt="NetServices LLC"></footer>
 </div>
 </body>
 </html>
