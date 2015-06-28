@@ -1,0 +1,15 @@
+var apiKey="RspQyE7vqwceJDz1q5aKkxcFofHac7xmDg5oe3G2";
+var labelRootURL="https://api.fda.gov/drug/label.json";
+$(document).ready(function()
+ {
+    $.ajax(
+    {
+        url: labelRootURL + '?api_key=' + apiKey + '&search=drug_interactions:"aspirin"',
+        dataType:"jsonp",
+        crossDomain: true,
+    }).done(function(data) 
+    {
+       $('.drug-name').append(data.results[0].openfda.substance[0]);
+       $('.interactions').append(data.content.results[0].boxed_warning[0]);
+    });
+})
