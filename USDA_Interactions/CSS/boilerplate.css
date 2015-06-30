@@ -48,7 +48,7 @@ body {
 	margin: 0;
 	font-size: 13px;
 	line-height: 1.231;
-	background: #a0c9b8 url(/images/main-bgrnd.png)repeat-x; 
+	background: #009649 url(/images/main-bgrnd.png)repeat-x; 
 }
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
@@ -63,28 +63,28 @@ header {
 	
 }
 #wrapper {
-	width:90%;
-	position:relative;
-	top:50px;
-	left:0px;
+	width: 100%;
+	position: relative;
+	top: 97px;
+	left: 0px;
+	
 }
 
 .logo {
     float:left;
-    width:200px;
+    width:20%;
     position:relative;
-	top:30px;
+	top:0px;
 	left:0px;
 
 
 }
 .title {
 	float: right;
-	width: 500px;
-	position: absolute;
-	top 70px;
-	left: 202px;
-	top: 72px;
+	width: 80%;
+	position: relative;
+	left: 5px;
+	top: 28px;
 }
 
 
@@ -93,7 +93,7 @@ header {
 	width: 30px; 
 	height: 30px;
 	position:relative; 
-	top:-35px; 
+	top:-30px; 
 	left: 312px;
 	border-color:transparent;
 }

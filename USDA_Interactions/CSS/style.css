@@ -49,10 +49,12 @@ img, object, embed, video {
 
 
 @media only screen (min-width: 481px) {
-    div.title {
-         display: none;
-	}
-
+    .mobile-only {
+		
+        display:xnone !important;
+    }
+	
+}
 /* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
 
 @media only screen and (min-width: 481px) {
@@ -92,6 +94,10 @@ img, object, embed, video {
 	margin-left: 0;
 	width: 100%;
 	display: block;
-}
+    }
+	
+	.desktop-only {
+        display:block !important;
+    }
 }
 
