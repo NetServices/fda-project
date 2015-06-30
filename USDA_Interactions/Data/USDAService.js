@@ -24,7 +24,6 @@ function MedEntry(name) {
  */
 $(document).ready(function() {
 	// for testing
-	delete localStorage.meds;
 	$("#medList").hide();
 	// upon enter selected perform the search
 	$("#medication").keypress(function(e) {
