@@ -3,6 +3,7 @@
 var apiKey = "RspQyE7vqwceJDz1q5aKkxcFofHac7xmDg5oe3G2";
 var labelRootURL = "https://api.fda.gov/drug/label.json";
 var lastDrugJSON;
+var lastAddedHasInteraction;
 
 /**
  * Object to store drug information in
@@ -42,6 +43,7 @@ $(document).ready(function() {
 			alert('Please enter a dosage amount');
 		}
 	});
+	document.getElementById("medDetails").readOnly = true;
 	loadDrugTable();
 
 });
@@ -115,7 +117,6 @@ function saveData(data) {
 		entry = new MedEntry("name not found");
 	} else {
 		entry = new MedEntry(data.results[0].openfda.substance_name[0]);
-
 	}
 	entry.description = buildAndReturnDrugDescription(data);
 	entry.id = data.results[0].id;
@@ -150,7 +151,13 @@ function addNewRow(drug) {
 			+ drug.id + '"/>';
 
 	// TODO: check for existing drug
-
+var acceptCheck = "YES";
+var rejectCheck = "NO";
+	if(lastAddedHasInteraction)
+		{
+		  acceptCheck = "NO";
+		  rejectCheck = "YES";
+		}
 	$("#medList")
 			.append(
 					'<tr>'
@@ -164,10 +171,10 @@ function addNewRow(drug) {
 							+ drug.interactions.substring(0, 200)
 							+ '</td>'
 							+ '<td width="10%" class="center">'
-							+ '<input type="checkbox" name="acceptMed1" id="acceptMed1">'
+							+ '<input type="checkbox" name="acceptMed1" id="acceptMed1" checked = ' +acceptCheck +'>'
 							+ '</td>'
 							+ '<td width="10%" class="center">'
-							+ '<input type="checkbox" name="rejectMed1" id="rejectMed1">'
+							+ '<input type="checkbox" name="rejectMed1" id="rejectMed1" '+acceptCheck +'>'
 							+ '</td>' + '<td width="10%" class="center">'
 							+ deleteButton + '</td>' + '</tr>');
 
@@ -195,14 +202,17 @@ function addDrugToPersonalDB(drug) {
 
 function loadDrugTable() {
 	var drugDBEntries;
-	if (localStorage.meds) {
+	if (localStorage.getItem("meds") != null)  {
 		drugDBEntries = JSON.parse(localStorage.meds);
-	}
+	
 
-	var arrayLength = drugDBEntries.length;
-	$("#medList").find("tr:gt(0)").remove();
-	for ( var i = 0; i < arrayLength; i++) {
-		addNewRow(drugDBEntries[i]);
+	if (drugDBEntries) {
+		var arrayLength = drugDBEntries.length;
+		$("#medList").find("tr:gt(0)").remove();
+		for ( var i = 0; i < arrayLength; i++) {
+			addNewRow(drugDBEntries[i]);
+		}
+	}
 	}
 
 }
@@ -219,10 +229,11 @@ function checkAgainstCurrentDrugs(data) {
 	var drugDBEntries;
 	if (localStorage.meds) {
 		drugDBEntries = JSON.parse(localStorage.meds);
-
+		lastAddedHasInteraction = 0;
 		for (i = drugDBEntries.length - 1; i >= 0; i--) {
-			if (drugDBEntries[i].interactions.indexof(data.name) > -1) {
+			if (drugDBEntries[i].interactions.indexOf(data.name) > -1) {
 				alert("This Drug interacts with: " + data.name);
+				lastAddedHasInteraction = 1;
 			}
 		}
 	}
@@ -270,15 +281,15 @@ function buildAndReturnDrugDescription(drugJSON) {
  */
 function deleteDrugFromDBByID(drugID) {
 	var drugDBEntries;
-	if (localStorage.meds) {
+	if (localStorage.getItem("meds") != null) {
 		drugDBEntries = JSON.parse(localStorage.meds);
-	}
 
-	for (i = drugDBEntries.length - 1; i >= 0; i--) {
-		if (drugDBEntries[i].id == drugID) {
-			drugDBEntries.splice(i, 1);
+		for (i = drugDBEntries.length - 1; i >= 0; i--) {
+			if (drugDBEntries[i].id == drugID) {
+				drugDBEntries.splice(i, 1);
+			}
 		}
-	}
 
-	localStorage.meds = JSON.stringify(drugDBEntries);
+		localStorage.meds = JSON.stringify(drugDBEntries);
+	}
 }

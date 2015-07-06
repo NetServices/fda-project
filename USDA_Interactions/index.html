@@ -54,7 +54,21 @@ Do the following if you're using your customized build of modernizr (http://www.
   <h4>Step 1: Search for a drug by generic or brand name</h4> 
     <input type="text" class="style-5" id="medication" name="medication" size="30" value="">
    
-<input name="Go" type="submit" value="" size="4" class="srchBtn" >
+<input id= "searchButton" name="Go" type="submit" value="" size="4" class="srchBtn" >
+
+<div class="table-responsive">
+<table width="90%" class="table table-bordered table-condensed" id="responseTable" summary="responseTable">
+  <tbody>
+    <tr>
+      <th width="41%" scope="col" id="MedName">Name</th>
+      <th width="51%" scope="col" id="MedDescription">Description</th>
+      <th width="8%" scope="col" id="Accept">Select</th>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
 </section>  
 <section >
    <h4>Step 2: Review details of medication
