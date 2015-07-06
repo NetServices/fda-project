@@ -42,6 +42,7 @@ $(document).ready(function() {
 			alert('Please enter a dosage amount');
 		}
 	});
+	loadDrugTable();
 
 });
 
