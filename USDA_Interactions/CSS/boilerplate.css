@@ -48,7 +48,7 @@ body {
 	margin: 0;
 	font-size: 13px;
 	line-height: 1.231;
-	background: #a0c9b8 url(/images/main-bgrnd.png)repeat-x; 
+	background: #009649 url(../images/main-bgrnd.png)repeat-x;
 }
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
@@ -57,46 +57,61 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 }
 header {
 	background:#009649
-  url(/images/grnBanner1.png) bottom repeat-x;
-	height:247px;
+  url(../images/grnBanner1.png) bottom repeat-x;
+	height:249px;
 	border-bottom:#FFF thin;
-	
 }
-#wrapper {
-	width:90%;
+#banner {
+    width:100%;
 	position:relative;
-	top:50px;
-	left:0px;
+	top:70px;
+	left:0px;		
 }
 
 .logo {
     float:left;
-    width:200px;
+    width:198px;
     position:relative;
-	top:30px;
-	left:0px;
+	top:5px;
+	left:-15px;
 
 
 }
 .title {
 	float: right;
-	width: 500px;
-	position: absolute;
-	top 70px;
-	left: 202px;
-	top: 72px;
+	width: 70%;
+	position: relative;
+	left: 5px;
+	top: 58px;
+}
+
+
+#wrapperSearch {
+	min-width: 300px;
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+.left {
+	float:left;
+    width:90%;
+}
+.right {
+	float:right;
+    width:10%
 }
 
 
 .srchBtn {
-	background:url(/images/search-icon-sml.png) no-repeat; 
-	width: 30px; 
+	background:url(../images/search-icon-sml.png) no-repeat;
+	width: 30px;
 	height: 30px;
 	position:relative; 
-	top:-35px; 
-	left: 312px;
+	top:x-35px; 
+	left: x312px;
 	border-color:transparent;
 }
+
 
 h1 {
     text-align: center;
@@ -109,7 +124,7 @@ input[type="checkbox"] {
 	text-align: center;
 }
 
-#inputArea input[type="text"], #inputArea textarea
+#inputArea input[type="text"] 
  {
      font-family: Arial, Sans-Serif;
      font-size: 13px;
@@ -117,18 +132,50 @@ input[type="checkbox"] {
      display: block;
      padding: 4px;
      border: solid 1px #85b1de;
-     width: 300px;  
+     width: 50%;
+	 resize:horizontal; 
  } 
+ 
+ #inputArea textarea {
+    border: solid 1px #85b1de;
+    outline: xnone;
+    color: xblack;
+    display: block;
+    background: white;
+    padding: 1em;
+    margin: xauto;
+    font-size: 1em;
+    margin-bottom: 1em;
+    font-family: 'Open Sans', sans-serif;
+    height: 12em;
+    max-height: 12em;
+    width: 50%;
+    max-width: 70%;
 
-.style-5 input[type="text"] {
-  padding: 10px;
-  border: solid 1px #fff;
-  box-shadow: inset 1px 1px 2px 0 #707070;
-  transition: box-shadow 0.3s;
 }
-.style-5 input[type="text"]:focus,
-.style-5 input[type="text"].focus {
-  box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+ 
+input[type=url], input[type=email], input[type=password], input[type=tel] {
+  -webkit-appearance: none; -moz-appearance: none;
+  display: block;
+  margin: 0;
+  width: 100%; height: 40px;
+  line-height: 20px; font-size: 13px;
+  border: 1px solid #bbb;
+}
+
+input[type=checkbox] {
+ width: 44px; height: 24px;
+ -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 22px;
+ border: 1px solid #bbb;
+ margin:auto;
+}
+
+
+.clickable-area {
+    display: block;
+    width: 100%;
+    height: 300px;
+    background-color: #ffefef;
 }
 
 /* 
@@ -217,6 +264,7 @@ img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 svg:not(:root) { overflow: hidden; }
 
 
+content:"\e086";
 /* =============================================================================
    Figures
    ========================================================================== */
@@ -318,7 +366,7 @@ button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
  * 2. Allow only vertical resizing
  */
 
-textarea { overflow: auto; vertical-align: top; resize: vertical; }
+textarea { overflow: auto; vertical-align: top; resize: vertical; font-size:10px;}
 
 /* Colors for form validity */
 input:valid, textarea:valid {  }
@@ -336,20 +384,6 @@ td { vertical-align: top; }
 /* ==|== primary styles =====================================================
    Author: 
    ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ==|== non-semantic helper classes ========================================

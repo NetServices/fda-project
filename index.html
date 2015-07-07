@@ -50,31 +50,19 @@ Do the following if you're using your customized build of modernizr (http://www.
  
 
 <section id="inputArea">
-<h3>The purpose of this app is to determine drug interactions with your prescription medication. </h3>
+<h4>The purpose of this app is to determine druginteractions with your prescription medication. </h4>
   <h4>Step 1: Search for a drug by generic or brand name</h4> 
-  
-   <div class="form-group" style="background-color:transparent !important; border:none !important;">
-<table width="90%" border="0" class="xtable" summary="Search for medication" style="background-color:transparent; border:none;">
-  
-  <tr>
-    <td style="background-color:transparent; border:none;" width="85%"><label for="medName">Medication Name</label>
-    <input type="text" class="form-control" name="medName" id="medication" style="width:98%;"></td>
-    <td style="background-color:transparent; border:none;" width="15%"><br><label for="Go"></label><input id="searchButton" name="Go" type="submit" value="" size="4" class="srchBtn btn" ></td>
-  </tr>
-</table>
-
-</div> 
-
-  
-<section id = "details">  
-   <h4>Step 2: Review details of medication</h4>
- 
-   <label id = "drug-name"> </label>
-   <div class="form-group" id="inputArea"><label for="medDetails">Details</label>
-   <textarea name="medDetails" cols="x60" rows="x5" class="form-control" id="medDetails"></textarea>
-   </div>
-     
-   <h4 id = "prescriptionlist">Step 3: Add your medication to your Personal Prescription List</h4>
+    <input type="text" class="style-5" id="medication" name="medication" size="30" value="">
+   
+<input id= "searchButton" name="Go" type="submit" value="" size="4" class="srchBtn" >
+</section>  
+<section >
+   <h4>Step 2: Review details of medication
+   <br><label id="drug-name"></label><br>
+     <textarea name="medDetails" id= "medDetails" cols="100" rows="5" ></textarea>
+   </h4>
+  </section>
+   <h4>Step 3: Add your medication to your Personal Prescription List</h4>
    
      <label for="dose">Dose</label>
      <input type="text" name="dose" id="dose" size="50%">
@@ -86,23 +74,19 @@ Do the following if you're using your customized build of modernizr (http://www.
 
 <br><br>
 
-<div id="prescriptionListDiv">
-<section id="prescriptionArea">  <h4 id = "listTitle">My Personal Prescription List</h4>
+<section id="inputArea"> My Personal Prescription List
 <table class="table-bordered" cellspacing="0" cellpadding="3" summary="medications" id="medList">
   <tr>
     <th width="149" scope="col" id="medItem">Prescription</th>
     <th width="10" scope="col" id="dose">Dose</th>
     <th width="99" scope="col" id="interaction">Drug Interaction</th>
     <th width="10" scope="col" id="accept">Accept</th>
-    <th width="10" scope="col" id="reject">Flagged</th>
+    <th width="10" scope="col" id="reject">Reject</th>
     <th width="10" scope="col" id="reject">Delete</th>
   </tr>
 </table>
-<button type="button" id = "printButton">Print</button>
 
-</section>
-</div>
-<br>
+</section><br>
 
 <footer class="center"><img name="NetSvcsminiLogo" src="images/NetSvcs-miniLogo.png" width="100" height="25" alt="NetServices LLC"></footer>
 </div>
