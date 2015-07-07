@@ -44,15 +44,18 @@ img, object, embed, video {
 	margin-left: 0;
 	width: 100%;
 	display: block;
-}
+    }
 }
 
 	
 @media (max-width: 481px) {
-   .title {
-        background: none;
-        }
+   
+#banner span img {
+   display:none !important;
+   overflow:hidden;
+   }
 }
+
 
 /* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
 
@@ -64,11 +67,13 @@ img, object, embed, video {
 	background-color:#fff;
 	
 }
-@media only screen and (min-width: 481px) {
-.title {
-        background: none;
-		display:none;
-        }
+
+#banner span img {
+   width: 53%;
+   max-width: 380px;
+   position:relative;top: 48px;left:-5px;
+   width: 100% \9;
+   
 }
 
 #LayoutDiv1 {
@@ -93,6 +98,14 @@ img, object, embed, video {
 	margin: auto;
 	background-color:#fff;
 }
+
+#banner span img {
+   width: 60%;
+   max-width: 500px;
+   position:relative;top: 58px;left:-5px;
+   width: 100% \9;
+}
+
 #LayoutDiv1 {
 	clear: both;
 	float: left;

@@ -48,7 +48,7 @@ body {
 	margin: 0;
 	font-size: 13px;
 	line-height: 1.231;
-	background: #009649 url(../images/main-bgrnd.png)repeat-x; 
+	background: #009649 url(../images/main-bgrnd.png)repeat-x;
 }
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
@@ -60,46 +60,58 @@ header {
   url(../images/grnBanner1.png) bottom repeat-x;
 	height:249px;
 	border-bottom:#FFF thin;
-	
 }
-#wrapper {
-	width: 100%;
-	position: relative;
-	top: 98px;
-	left: 0px;
-	
+#banner {
+    width:100%;
+	position:relative;
+	top:70px;
+	left:0px;		
 }
 
 .logo {
     float:left;
     width:198px;
     position:relative;
-	top:0px;
-	left:0px;
+	top:5px;
+	left:-15px;
 
 
 }
 .title {
 	float: right;
-	width: 80%;
+	width: 70%;
 	position: relative;
 	left: 5px;
-	top: 28px;
-	background: url(../images/FDA-name.png) no-repeat;
-	height:46px;
-	width:70%;
+	top: 58px;
+}
+
+
+#wrapperSearch {
+	min-width: 300px;
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+.left {
+	float:left;
+    width:90%;
+}
+.right {
+	float:right;
+    width:10%
 }
 
 
 .srchBtn {
-	background:url(../images/search-icon-sml.png) no-repeat; 
-	width: 30px; 
+	background:url(../images/search-icon-sml.png) no-repeat;
+	width: 30px;
 	height: 30px;
 	position:relative; 
 	top:x-35px; 
 	left: x312px;
 	border-color:transparent;
 }
+
 
 h1 {
     text-align: center;
@@ -120,7 +132,7 @@ input[type="checkbox"] {
      display: block;
      padding: 4px;
      border: solid 1px #85b1de;
-     width: 80%; 
+     width: 50%;
 	 resize:horizontal; 
  } 
  
@@ -137,7 +149,7 @@ input[type="checkbox"] {
     font-family: 'Open Sans', sans-serif;
     height: 12em;
     max-height: 12em;
-    width: 80%;
+    width: 50%;
     max-width: 70%;
 
 }
