@@ -1,16 +1,110 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>USDA</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="Data/USDAService.js"></script>
-    </head>
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<title>FDA Agile app</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    
 
-    <body>
-        <div>
-            <p class="drug-name"> </p>
-            <p class="interactions"></p>
-            <input type="text" id="search_input">
-        </div>
-    </body>
+<link href="CSS/boilerplate.css" rel="stylesheet" type="text/css">
+
+<link href="CSS/style.css" rel="stylesheet" type="text/css">
+
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="Data/USDAService.js"></script>
+<script src="CSS/respond.min.js"></script>
+
+</head>
+<body><div class="gridContainer clearfix">
+ <header id="top" >
+ <div id="wrapper"> 
+	<div class="logo"><img src="images/FDA-logo.png" alt="Script2Go logo"></div>
+   <div class="title"><img src="images/FDA-name.png" width="378px" height="46px" alt="US Food and Drug Administration" class="img-responsive"></div> 
+   
+ </div>
+ 
+ </header>
+ 
+ 
+
+<section id="inputArea">
+<h3>The purpose of this app is to determine drug interactions with your prescription medication. </h3>
+  <h4>Step 1: Search for a drug by generic or brand name</h4> 
+  
+   <div class="form-group" style="background-color:transparent !important; border:none !important;">
+<table width="90%" border="0" class="xtable" summary="Search for medication" style="background-color:transparent; border:none;">
+  
+  <tr>
+    <td style="background-color:transparent; border:none;" width="85%"><label for="medName">Medication Name</label>
+    <input type="text" class="form-control" name="medName" id="medication" style="width:98%;"></td>
+    <td style="background-color:transparent; border:none;" width="15%"><br><label for="Go"></label><input id="searchButton" name="Go" type="submit" value="" size="4" class="srchBtn btn" ></td>
+  </tr>
+</table>
+
+</div> 
+
+  
+<section id = "details">  
+   <h4>Step 2: Review details of medication</h4>
+ 
+   <label id = "drug-name"> </label>
+   <div class="form-group" id="inputArea"><label for="medDetails">Details</label>
+   <textarea name="medDetails" cols="x60" rows="x5" class="form-control" id="medDetails"></textarea>
+   </div>
+     
+   <h4 id = "prescriptionlist">Step 3: Add your medication to your Personal Prescription List</h4>
+   
+     <label for="dose">Dose</label>
+     <input type="text" name="dose" id="dose" size="50%">
+     <label>
+       Add to my list
+       <input type="submit" name="add-med" id="add-med" value="Add">
+     </label>  
+</section>
+
+<br><br>
+
+<div id="prescriptionListDiv">
+<section id="prescriptionArea">  <h4 id = "listTitle">My Personal Prescription List</h4>
+<table class="table-bordered" cellspacing="0" cellpadding="3" summary="medications" id="medList">
+  <tr>
+    <th width="149" scope="col" id="medItem">Prescription</th>
+    <th width="10" scope="col" id="dose">Dose</th>
+    <th width="99" scope="col" id="interaction">Drug Interaction</th>
+    <th width="10" scope="col" id="accept">Accept</th>
+    <th width="10" scope="col" id="reject">Flagged</th>
+    <th width="10" scope="col" id="reject">Delete</th>
+  </tr>
+</table>
+<button type="button" id = "printButton">Print</button>
+
+</section>
+</div>
+<br>
+
+<footer class="center"><img name="NetSvcsminiLogo" src="images/NetSvcs-miniLogo.png" width="100" height="25" alt="NetServices LLC"></footer>
+</div>
+</body>
 </html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;/USDA_Interactions/Data/USDAService&apos; to &apos;USDAService.js&apos;&#x0A;- Original element: &apos;USDAService&apos;" description="Rename resource &apos;USDAService&apos;" flags="7" id="org.eclipse.dltk.ui.rename.resource" input="Data/USDAService" name="USDAService.js" stamp="1434934159732" version="1.0"/>
+</session>
